@@ -1,7 +1,5 @@
 <div align="center">
-    <picture>
-      <img src="./assets/images/logo8.png" height="64">
-    </picture>
+
   <h1>
     Uni Market
   </h1>
@@ -28,8 +26,8 @@ The **Uni Market** is a mobile application developed to provide a secure and exc
 
 To clone the repository, run the following command:
 
-```bash
-git clone https://github.com/your-username/university-student-marketplace.git
+```sh
+git clone https://github.com/burhanettinkabak/uni-market.git
 ```
 
 To run the application locally, follow these steps:
@@ -41,17 +39,29 @@ To run the application locally, follow these steps:
    - Download the required Firebase configuration files and place them in the project.
 
 3. **Install dependencies**:
-   ```bash
+   ```sh
    cd uni-market
    npm install
    ```
 
 4. **Configure the environment variables** using the `.env.example` file.
-
+   ```js
+   EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+   ```
 5. **Configure the firebase** using the `firebaseConfig.tsx` file.
-
-6. **Start the development server**:
-   ```bash
+  ```js
+  const firebaseConfig = {
+  apiKey: "Your Firebase API Key",
+  authDomain: "Your Firebase Auth Domain",
+  projectId: "Your Firebase Project ID",
+  storageBucket: "Your Firebase Storage Bucket",
+  messagingSenderId: "Your Firebase Messaging Sender ID",
+  appId: "Your Firebase App ID",
+  measurementId: "Your Firebase Measurement ID"
+  };
+  ```
+7. **Start the development server**:
+   ```sh
    npm expo start
    ```
 
