@@ -66,5 +66,7 @@ For detailed instructions and additional resources, check out the following link
 ## Contact
 
 Burhanettin Kabak
+
 For any questions or feedback, please contact me at [kabakburhanettin@gmail.com](mailto:kabakburhanettin@gmail.com).
+
 Linkedin: [Burhanettin Kabak](https://www.linkedin.com/in/burhanettin-kabak-5aab731a4/)
