@@ -22,7 +22,45 @@ The **Uni Market** is a mobile application developed to provide a secure and exc
 
 ## App Screenshots
 
-<table> <tr> <td align="center"> <img src="./assets/screenshots/entrance.png" alt="Entrance" width="200"> <br><b>Entrance</b> </td> <td align="center"> <img src="./assets/screenshots/signup.png" alt="Sign Up" width="200"> <br><b>Sign Up</b> </td> <td align="center"> <img src="./assets/screenshots/signin.png" alt="Sign In" width="200"> <br><b>Sign In</b> </td> </tr> <tr> <td align="center"> <img src="./assets/screenshots/home.png" alt="Home" width="200"> <br><b>Home</b> </td> <td align="center"> <img src="./assets/screenshots/productdetail.png" alt="Product Detail" width="200"> <br><b>Product Detail</b> </td> <td align="center"> <img src="./assets/screenshots/chat.png" alt="Chat" width="200"> <br><b>Chat</b> </td> </tr> <tr> <td align="center"> <img src="./assets/screenshots/inbox.png" alt="Inbox" width="200"> <br><b>Inbox</b> </td> <td align="center"> <img src="./assets/screenshots/addproduct.png" alt="Add Product" width="200"> <br><b>Add Product</b> </td> <td align="center"> <img src="./assets/screenshots/myproducts.png" alt="My Products" width="200"> <br><b>My Products</b> </td> </tr> <tr> <td align="center"> <img src="./assets/screenshots/profile.png" alt="Profile" width="200"> <br><b>Profile</b> </td> </tr> </table>
+### Entrance
+
+<img src="./assets/screenshots/entrance.png" alt="Entrance" width="250">
+
+### Sign Up
+
+<img src="./assets/screenshots/signup.png" alt="Sign Up" width="250">
+
+### Sign In
+
+<img src="./assets/screenshots/signin.png" alt="Sign In" width="250">
+
+### Home
+
+<img src="./assets/screenshots/home.png" alt="Home" width="250">
+
+### Product Detail
+
+<img src="./assets/screenshots/productdetail.png" alt="Product Detail" width="250">
+
+### Chat
+
+<img src="./assets/screenshots/chat.png" alt="Chat" width="250">
+
+### Inbox
+
+<img src="./assets/screenshots/inbox.png" alt="Inbox" width="250">
+
+### Add Product
+
+<img src="./assets/screenshots/addproduct.png" alt="Add Product" width="250">
+
+### My Products
+
+<img src="./assets/screenshots/myproducts.png" alt="My Products" width="250">
+
+### Profile
+
+<img src="./assets/screenshots/profile.png" alt="Profile" width="250">
 
 ## Installation
 
