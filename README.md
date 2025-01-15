@@ -60,7 +60,8 @@ To run the application locally, follow these steps:
   measurementId: "Your Firebase Measurement ID"
   };
   ```
-7. **Start the development server**:
+6. **Start the development server**:
+   
    ```sh
    npm expo start
    ```
