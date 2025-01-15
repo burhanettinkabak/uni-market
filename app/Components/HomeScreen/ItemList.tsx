@@ -32,13 +32,13 @@ export default function ItemList() {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor: '#EFEFF0'}}>
       {loading ? (
         <ActivityIndicator size="large" color="#f0031c" style={sharedStyles.activityIndicator} />
       ) : items.length > 0 ? (
         <LatestItemList latestItems={items} heading={''} />
       ) : (
-        <Text style={sharedStyles.noItemsText}>No items found</Text>
+        <Text style={sharedStyles.noItemsText}>İlan bulunamadı</Text>
       )}
     </View>
   );

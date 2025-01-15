@@ -12,7 +12,7 @@ const sliderData = [
   },
   { 
     image: require('../../../assets/images/slider11.png'),
-    text: "Kampüsünüzdeki Marketi Keşfedin.",
+    text: "Kampüsünüzdeki Ürünleri Keşfedin.",
   },
   // Add more images and text as needed
 ];
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginHorizontal: 20,
     borderRadius: 10,
-    overflow: 'hidden', // Ensures the overlay respects the image's border radius
+    overflow: 'hidden', 
    
   },
   image: {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)', // Semi-transparent background for better text readability
+    backgroundColor: 'rgba(0, 0, 0, 0.4)', 
   },
   overlayText: {
     color: 'white',

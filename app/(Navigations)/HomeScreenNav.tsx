@@ -7,9 +7,7 @@ import ProductDetail from '../(Screens)/ProductDetail';
 import { Ionicons } from '@expo/vector-icons';
 import MyadsScreen from '../(Screens)/MyadsScreen';
 import InboxScreen from '../(Screens)/InboxScreen';
-import Chat from '../(Screens)/Chatroom';
-import { useNavigation } from '@react-navigation/native';
-import ChatRoomScreen from '../(Screens)/Chatroom';
+import ChatRoomScreen from '../(chat)/Chatroom';
 
 type RootStackParamList = {
   Anasayfa: undefined;
@@ -42,9 +40,7 @@ export default function HomeScreenNav() {
          }} 
        /> 
 
-       <Stack.Screen name="Chatroom" component={ChatRoomScreen} options={{headerShown: true, headerTitle: 'Chat', headerTitleAlign: 'center', headerTitleStyle: {color: '#0B0406',}, headerStyle: {backgroundColor: '#EFEFF0',}, headerTintColor: '#0B0406'}} />
     </Stack.Navigator>
   )
 }
-{/* <Stack.Screen name="ProductDetail" component={ProductDetail} options={{headerShown: true, headerTitle: 'Ürün Detayı', headerTitleAlign: 'center', headerTitleStyle: {color: 'white',}, headerStyle: {backgroundColor: '#f0031c',}, headerLeft: () => <Ionicons name="arrow-back" size={24} color="white" />}} />  */}
 

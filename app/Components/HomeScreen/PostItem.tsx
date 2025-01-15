@@ -21,7 +21,7 @@ export default function PostItem({ item, style }: PostItemProps) {
     <View style={sharedStyles.card}>
       <Image source={{ uri: item.image }} style={sharedStyles.image} />
       <Text style={sharedStyles.category}>{item.category}</Text>
-      <Text style={sharedStyles.price}>{item.price} ₺</Text>
+      <Text style={sharedStyles.price}>{item.price.replace(/\B(?=(\d{3})+(?!\d))/g, '.')} ₺</Text>
       {/* <Text style={sharedStyles.name}>{item.title}</Text> */}
       <Text style={sharedStyles.location}>📍 {item.address}</Text>
       <TouchableOpacity style={sharedStyles.button} onPress={() => navigation.push('ProductDetail', { item })}>

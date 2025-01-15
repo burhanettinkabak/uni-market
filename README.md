@@ -1,81 +1,108 @@
-<p align="center">
-  <a href="https://clerk.com?utm_source=github&utm_medium=clerk_docs" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./assets/images/light-logo.png">
-      <img alt="Clerk Logo for light background" src="./assets/images/dark-logo.png" height="64">
-    </picture>
-  </a>
-  <br />
-</p>
 <div align="center">
+    <picture>
+      <img alt="Clerk Logo for light background" src="./assets/images/logo8.png" height="64">
+    </picture>
   <h1>
-    Clerk and Expo Quickstart
+    Uni Market
   </h1>
-  <a href="https://www.npmjs.com/package/@clerk/clerk-js">
-    <img alt="Downloads" src="https://img.shields.io/npm/dm/@clerk/clerk-js" />
-  </a>
-  <a href="https://discord.com/invite/b5rXHjAg7A">
-    <img alt="Discord" src="https://img.shields.io/discord/856971667393609759?color=7389D8&label&logo=discord&logoColor=ffffff" />
-  </a>
-  <a href="https://twitter.com/clerkdev">
-    <img alt="Twitter" src="https://img.shields.io/twitter/url.svg?label=%40clerkdev&style=social&url=https%3A%2F%2Ftwitter.com%2Fclerkdev" />
-  </a>
-  <br />
-  <br />
-  <img alt="Clerk Hero Image" src="./assets/images/hero.png">
+  
 </div>
 
 ## Introduction
 
-Clerk is a developer-first authentication and user management solution. It provides pre-built React components and hooks for sign-in, sign-up, user profile, and organization management. Clerk is designed to be easy to use and customize, and can be dropped into any React or Next.js application.
+The **Uni Market** is a mobile application developed to provide a secure and exclusive platform for university students to buy and sell products within their campus community. This app is built using Expo, Clerk, and Firebase for a seamless and robust user experience.
 
-After following the quickstart you'll have learned how to:
+### Project Features
 
-- Install `@clerk/clerk-expo`
-- Setup your environment key
-- Wrap your Expo app in `<ClerkProvider />` and supply your `tokenCache`
-- Conditionally show content based on your auth state
-- Build your sign-in and sign-up pages
+- **Secure Authentication**: Only verified university students can access the app using Clerk-powered authentication.
+- **Product Listings**: Users can create, edit, and manage their product listings with detailed descriptions and images.
+- **Chat Functionality**: A real-time chat system enables secure and direct communication between buyers and sellers.
+- **Firebase Integration**: Reliable and scalable database management for storing user data, product information, and chat messages.
+- **Mobile-First Design**: Optimized for a seamless experience on mobile devices with an intuitive user interface.
 
-### Branches of this repository
+## App Screenshots
 
-- `main`: The result of following the [Clerk Expo quickstart](https://clerk.com/docs/quickstarts/expo).
-- `advanced`: A more advanced version of the quickstart, with OAuth connections, error handling and styling.
+### Entrance
 
-## Running the template
+![Entrance](./assets/screenshots/entrance.png)
+
+### Sign Up
+
+![Sign Up](./assets/screenshots/signup.png)
+
+### Sign In
+
+![Sign In](./assets/screenshots/signin.png)
+
+### Home
+
+![Home](./assets/screenshots/home.png)
+
+### Product Detail
+
+![Product Detail](./assets/screenshots/productdetail.png)
+
+### Chat
+
+![Chat](./assets/screenshots/chat.png)
+
+### Inbox
+
+![Inbox](./assets/screenshots/inbox.png)
+
+### Add Product
+
+![Add Product](./assets/screenshots/addproduct.png)
+
+### My Products
+
+![My Products](./assets/screenshots/myproducts.png)
+
+### Profile
+
+![Profile](./assets/screenshots/profile.png)
+
+## Installation
+
+To clone the repository, run the following command:
 
 ```bash
-git clone https://github.com/clerk/clerk-expo-quickstart
+git clone https://github.com/your-username/university-student-marketplace.git
 ```
 
-To run the example locally, you'll need to make sure you have XCode installed and configured properly, then:
+To run the application locally, follow these steps:
 
-1. Sign up for a Clerk account at [https://clerk.com](https://dashboard.clerk.com/sign-up?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=10-24-2023&utm_term=clerk-expo-quickstart).
+1. **Sign up for a Clerk account** at [Clerk](https://dashboard.clerk.com/sign-up).
 
-2. Go to the [Clerk dashboard](https://dashboard.clerk.com?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=10-24-2023&utm_term=clerk-expo-quickstart) and create an application.
+2. **Set up Firebase**:
+   - Go to the [Firebase Console](https://console.firebase.google.com/) and create a project.
+   - Download the required Firebase configuration files and place them in the project.
 
-3. Set the required Clerk environment variable as shown in [the example `env` file](./.env.example).
+3. **Install dependencies**:
+   ```bash
+   cd uni-market
+   npm install
+   ```
 
-4. `npm install` the required dependencies.
+4. **Configure the environment variables** using the `.env.example` file.
 
-5. `npm run start` to launch the development server.
+5. **Configure the firebase** using the `firebaseConfig.tsx` file.
+
+6. **Start the development server**:
+   ```bash
+   npm expo start
+   ```
 
 ## Learn more
 
-To learn more about Clerk and Expo, check out the following resources:
-
-- [Quickstart: Get started with Expo and Clerk](https://clerk.com/docs/quickstarts/expo?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=10-24-2023&utm_term=clerk-expo-quickstart)
-
-- [Clerk Documentation](https://clerk.com/docs/references/expo/overview?utm_source=DevRel&utm_medium=docs&utm_campaign=templates&utm_content=10-24-2023&utm_term=clerk-expo-quickstart)
+For detailed instructions and additional resources, check out the following links:
 
 - [Expo Documentation](https://docs.expo.dev/)
+- [Clerk Documentation](https://clerk.com/docs/)
+- [Firebase Documentation](https://firebase.google.com/docs/)
 
-## Found an issue or want to leave feedback
+## Contact
 
-Feel free to create a support thread on our [Discord](https://clerk.com/discord). Our support team will be happy to assist you in the `#support` channel.
-
-## Connect with us
-
-You can discuss ideas, ask questions, and meet others from the community in our [Discord](https://discord.com/invite/b5rXHjAg7A).
-
-If you prefer, you can also find support through our [Twitter](https://twitter.com/ClerkDev), or you can [email](mailto:support@clerk.dev) us!
+Burhanettin Kabak
+For any questions or feedback, please contact me at [kabakburhanettin@gmail.com](mailto:kabakburhanettin@gmail.com).
+Linkedin: [Burhanettin Kabak](https://www.linkedin.com/in/burhanettin-kabak-5aab731a4/)

@@ -58,7 +58,7 @@ const sharedStyles = StyleSheet.create({
   },
   price: {
     fontSize: 16,
-    fontFamily: 'Poppins-Bold',
+    fontFamily: 'Poppins-SemiBold',
     color: '#6747E9',
     textAlign: 'center',
     margin: 5,

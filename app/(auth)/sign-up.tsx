@@ -95,7 +95,7 @@ export default function SignUpScreen() {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-        <Text style={styles.title}>Verify your email</Text>
+        <Text style={styles.title}>E-postanızı doğrulayın</Text>
         </View>
         <View style={styles.form}>
         <View style={styles.inputContainer}>
@@ -103,13 +103,13 @@ export default function SignUpScreen() {
         <TextInput
           style={styles.input}
           value={code}
-          placeholder="Enter your verification code"
+          placeholder="Doğrulama kodunuzu girin"
           onChangeText={(code) => setCode(code)}
         />
         </View>
 
         <TouchableOpacity style={styles.loginButton} onPress={onVerifyPress}>
-          <Text style={styles.loginText}>Verify</Text>
+          <Text style={styles.loginText}>Doğrula</Text>
         </TouchableOpacity>
         </View>
         </View>
@@ -180,8 +180,8 @@ const styles = StyleSheet.create({
 container: {
   flex: 1,
   backgroundColor: 'white',
-  alignItems: 'center', // İçeriği yatayda ortalar
-  justifyContent: 'center', // İçeriği dikeyde ortalar
+  alignItems: 'center', 
+  justifyContent: 'center', 
 },
 header: {
   position: 'absolute',
@@ -193,11 +193,10 @@ header: {
   backgroundColor: '#6747E9',
   justifyContent: 'center',
   alignItems: 'center',
-  borderBottomWidth: 40,
-  borderBottomColor: '#FFD42D',
+
 },
 title: {
-  fontSize: 40, // Başlık için büyük ve mobil uyumlu
+  fontSize: 40, 
   fontWeight: 'bold',
   color: 'white',
   textAlign: 'center',
@@ -212,7 +211,7 @@ form: {
   marginTop: '50%',
 },
 subtitle: {
-  fontSize: 16, // Alt başlıklar için uygun bir boyut
+  fontSize: 16,
   color: '#393E52',
   marginBottom: 10,
   fontWeight: '600',
@@ -230,7 +229,7 @@ inputContainer: {
 input: {
   flex: 1,
   height: 60,
-  fontSize: 16, // Giriş alanları için orta büyüklükte
+  fontSize: 16, 
   paddingHorizontal: 10,
 },
 icon: {
@@ -244,11 +243,11 @@ forgotPasswordContainer: {
 },
 forgotPassword: {
   color: '#393E52',
-  fontSize: 14, // Küçük boyutlu metin
+  fontSize: 14, 
 
 },
 loginButton: {
-  backgroundColor: '#6747E9',
+  backgroundColor: '#FFD42D',
   paddingVertical: 15,
   borderRadius: 30,
   alignItems: 'center',
@@ -257,8 +256,9 @@ loginButton: {
   marginTop: '10%',
 },
 loginText: {
-  fontSize: 18, // Düğme metni için belirgin boyut
-  color: 'white',
+  fontSize: 18, 
+  color: '#393E52',
+  fontWeight: 'bold',
   fontFamily: 'Poppins-Bold',
 },
 signup: {
@@ -272,7 +272,7 @@ signupText: {
 },
 signupLink: {
   color: '#FFD42D',
-  fontSize: 16, // Link metni için biraz daha büyük
+  fontSize: 16, 
   fontWeight: 'bold',
   marginLeft: 5,
 },

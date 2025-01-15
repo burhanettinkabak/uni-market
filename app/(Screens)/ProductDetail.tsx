@@ -11,6 +11,7 @@ import { getFirestore } from 'firebase/firestore';
 import { app } from '@/firebaseConfig';
 import { router, useRouter } from 'expo-router';
 import { navigate } from 'expo-router/build/global-state/routing';
+import { Link } from 'expo-router';
 
 type RouteParams = {
   params: {
@@ -22,6 +23,7 @@ type RouteParams = {
       price: string;
       address: string;
       useremail: string;
+      userimage: string;
     }
   }
 };
@@ -83,36 +85,48 @@ export default function ProductDetail() {
     const router = useRouter();
 
     const InitiateChat = async () => {
-      
-      const docId1=user?.primaryEmailAddress?.emailAddress+'_'+item?.useremail;
-      const docId2=item?.useremail+'_'+user?.primaryEmailAddress?.emailAddress;
+      if (user?.primaryEmailAddress?.emailAddress === item?.useremail) {
+        console.log("Cannot initiate chat with yourself.");
+        return;
+      }
+
+      const docId1 = user?.primaryEmailAddress?.emailAddress + '_' + item?.useremail;
+      const docId2 = item?.useremail + '_' + user?.primaryEmailAddress?.emailAddress;
 
       const q = query(collection(db, 'Chat'), where('id', 'in', [docId1, docId2]));
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
-        navigation.navigate('Chatroom', {id: doc.id});
+        router.push({
+          pathname: "/(chat)/Chatroom",
+          params: { id: doc.id }
+        });
       });
-      if(querySnapshot.docs.length == 0){
+      if (querySnapshot.docs?.length == 0) {
         await setDoc(doc(db, 'Chat', docId1), {
           id: docId1,
-          users: 
-          [{
-            email: user?.primaryEmailAddress?.emailAddress, 
-            }, 
-            {
-            email: item?.useremail, 
-            }],
+          users: [
+            { email: user?.primaryEmailAddress?.emailAddress,
+              image: user?.imageUrl,
+             },
+            { email: item?.useremail,
+              image: item?.userimage,
+              name: item?.title,
+             },
+          ],
+          userIds: [user?.primaryEmailAddress?.emailAddress, item?.useremail],
         });
-        navigation.navigate('Chatroom', {id: docId1});
+        router.push({
+          pathname: "/(chat)/Chatroom",
+          params: { id: docId1 }
+        });
       }
     }
     
 
   return (
     <ScrollView style={{ flex: 1, backgroundColor: '#EFEFF0' }}>
-            {/* <StatusBar barStyle="light-content" /> */}
-
+      
         <Image source={{ uri: item?.image }} style={{ width: '100%', height: 300 }} />
         <View style={styles.detailContainer}>
             <Text style={styles.title}>{item?.title}</Text>

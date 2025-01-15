@@ -2,7 +2,6 @@ import {
   View, 
   Text, 
   TouchableOpacity, 
-  Switch, 
   Alert, 
   Image, 
   TextInput, 
@@ -17,78 +16,83 @@ import { useUser } from '@clerk/clerk-expo';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    marginTop: 20,
+    padding: 25,
+    backgroundColor: '#EFEFF0', 
   },
   section: {
-    marginBottom: 20,
+    marginBottom: 15,
     alignItems: 'center',
+    marginTop:100,
   },
   profileImage: {
     width: 100,
     height: 100,
-    borderRadius: 50,
-    marginBottom: 10,
-  },
-  infoText: {
-    fontSize: 16,
+    borderRadius: 65,
+    marginBottom: 20,
+    
   },
   formContainer: {
-    marginVertical: 20,
-    padding: 15,
-    borderRadius: 10,
-    backgroundColor: '#ffffff',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 2,
+    marginVertical: 25,
+    padding: 25,
+    borderRadius: 20,
+    backgroundColor: '#FFFFFF', 
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 4,
   },
   inputField: {
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-    marginBottom: 15,
-    fontSize: 16,
-    padding: 8,
+    borderBottomWidth: 1.5,
+    borderBottomColor: '#FFD700', 
+    marginBottom: 25,
+    fontSize: 17,
+    padding: 12,
   },
   iconStyle: {
     position: 'absolute',
-    right: 10,
-    top: 10,
+    right: 15, 
+    top: 15,  
   },
   actionButton: {
-    backgroundColor: '#0288d1',
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 15,
+    marginTop:100,
+    backgroundColor: '#ff0000', 
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 25,
+    alignItems: 'center',
+    width:'80%',
+    marginLeft:'10%',
+    marginRight:'10%',
   },
   actionButtonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 16,
-  },
-  sectionTitle: {
-    fontSize: 18,
+    color: 'white', 
+    fontSize: 19,
     fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  switchContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10,
-  },
-  switchLabel: {
-    fontSize: 16,
   },
   logoutButton: {
-    backgroundColor: '#e53935',
-    padding: 14,
-    borderRadius: 8,
+    backgroundColor: '#6747E9', 
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    width:'80%',
+    marginLeft:'10%',
+    marginRight:'10%',
+
   },
   logoutButtonText: {
-    color: '#fff',
-    textAlign: 'center',
-    fontSize: 16,
+    color: '#FFFFFF', 
+    fontSize: 19,
+    fontWeight: 'bold',
+  },
+  inputWrapper: {
+    position: 'relative',
+    marginBottom: 15,
+  },
+  inputLabel: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 5,
   },
 });
 
@@ -96,97 +100,54 @@ export default function ProfileScreen() {
   const { signOut } = useAuth();
   const { user } = useUser();
 
-  const [phoneVisibility, setPhoneVisibility] = useState(false);
-  const [emailVisibility, setEmailVisibility] = useState(false);
-  const [name, setName] = useState('John Doe');
-  const [email, setEmail] = useState('johndoe@example.com');
-  const [phone, setPhone] = useState('+1234567890');
+  const [email, setEmail] = useState(user?.emailAddresses[0]?.emailAddress ?? '');
 
   const handleLogout = () => {
     signOut();
   };
 
-  const handleEditProfile = () => {
-    Alert.alert("Edit Profile", "Navigate to the edit profile screen.");
-  };
-
   const handleDeleteAccount = () => {
     Alert.alert(
-      "Delete Account",
-      "Are you sure you want to delete your account? This action cannot be undone.",
+      "Hesabınızı Sil",
+      "Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.",
       [
-        { text: "Cancel", style: "cancel" },
-        { text: "Delete", onPress: () => Alert.alert("Account deleted.") }
+        { text: "İptal", style: "cancel" },
+        { text: "Sil", onPress: async () => {
+            try {
+              await user?.delete();
+              Alert.alert("Hesabınız başarıyla silindi");
+              handleLogout();
+            } catch (error) {
+              Alert.alert("Hesabınızı silerken bir hata oluştu. Lütfen tekrar deneyiniz.");
+            }
+          } 
+        }
       ]
     );
   };
 
   return (
-    <ScrollView style={styles.container}>
-      {/* User Information Section */}
+    <View style={{flex:1,padding:10,marginTop:20,marginBottom:90}}>
+      <Text style={{fontFamily:'Poppins-SemiBold',color:'#0B0406',fontSize:20,textAlign:'center',marginTop:20,borderBottomWidth:1,borderBottomColor:'#ccc',paddingBottom:10}}>Profil Bilgileri</Text>
+      <View style={styles.container}>
       <View style={styles.section}>
         <Image 
           source={{ uri: user?.imageUrl }} 
           style={styles.profileImage} 
         />
+        <Text style={{fontFamily:'Poppins-SemiBold',color:'#0B0406',fontSize:18,textAlign:'center',marginTop:20,paddingBottom:10}}>{user?.emailAddresses[0]?.emailAddress}</Text>
       </View>
 
-      {/* Form Section */}
-      <View style={styles.formContainer}>
-        <TextInput
-          style={styles.inputField}
-          value={name}
-          onChangeText={setName}
-          placeholder="Name"
-        />
-        <Icon name="person" size={20} color="#00796b" style={styles.iconStyle} />
-        
-        <TextInput
-          style={styles.inputField}
-          value={email}
-          onChangeText={setEmail}
-          placeholder="Email"
-          keyboardType="email-address"
-        />
-        <Icon name="email" size={20} color="#00796b" style={styles.iconStyle} />
-        
-        <TextInput
-          style={styles.inputField}
-          value={phone}
-          onChangeText={setPhone}
-          placeholder="Phone"
-          keyboardType="phone-pad"
-        />
-        <Icon name="phone" size={20} color="#00796b" style={styles.iconStyle} />
-      </View>
-
-      {/* Profile Actions Section */}
-      <TouchableOpacity onPress={handleEditProfile} style={styles.actionButton}>
-        <Text style={styles.actionButtonText}>Edit Profile</Text>
-      </TouchableOpacity>
-
-      {/* Privacy Settings Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Privacy Settings</Text>
-        <View style={styles.switchContainer}>
-          <Text style={styles.switchLabel}>Show Phone Number</Text>
-          <Switch value={phoneVisibility} onValueChange={setPhoneVisibility} />
-        </View>
-        <View style={styles.switchContainer}>
-          <Text style={styles.switchLabel}>Show Email</Text>
-          <Switch value={emailVisibility} onValueChange={setEmailVisibility} />
-        </View>
-      </View>
-
-      {/* Account Actions Section */}
       <TouchableOpacity onPress={handleDeleteAccount} style={styles.actionButton}>
-        <Text style={styles.actionButtonText}>Delete Account</Text>
+        <Text style={styles.actionButtonText}>Hesabı Sil</Text>
+        <Icon name="delete" size={26} color="white" style={styles.iconStyle} />
       </TouchableOpacity>
 
-      {/* Logout Section */}
       <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
-        <Text style={styles.logoutButtonText}>Logout</Text>
-      </TouchableOpacity>
-    </ScrollView>
+          <Text style={styles.logoutButtonText}>Çıkış Yap</Text>
+          <Icon name="logout" size={26} color="white" style={styles.iconStyle} />
+        </TouchableOpacity>
+      </View>
+    </View>   
   );
 }

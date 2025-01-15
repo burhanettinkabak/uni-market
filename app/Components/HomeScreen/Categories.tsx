@@ -94,7 +94,7 @@ export default function Categories() {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    backgroundColor: '#EFEFF0', // Ensures compatibility with light and dark themes
+    backgroundColor: '#EFEFF0', 
     marginTop: 10,
  
   },

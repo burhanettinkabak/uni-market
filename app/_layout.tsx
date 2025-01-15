@@ -1,17 +1,27 @@
 import { useFonts } from 'expo-font';
-import { Slot, Stack } from 'expo-router';
+import { Slot } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { ClerkLoaded, ClerkProvider } from '@clerk/clerk-expo';
 import { tokenCache } from '@/cache';
-import { Button } from 'react-native';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Poppins: require('../assets/fonts/Poppins-Regular.ttf'),
+    PoppinsMedium: require('../assets/fonts/Poppins-Medium.ttf'),
+    PoppinsSemiBold: require('../assets/fonts/Poppins-SemiBold.ttf'),
+    PoppinsBold: require('../assets/fonts/Poppins-Bold.ttf'),
+    PoppinsItalic: require('../assets/fonts/Poppins-Italic.ttf'),
+    PoppinsLight: require('../assets/fonts/Poppins-Light.ttf'),
+    PoppinsThin: require('../assets/fonts/Poppins-Thin.ttf'),
+    PoppinsExtraBold: require('../assets/fonts/Poppins-ExtraBold.ttf'),
+    PoppinsExtraLight: require('../assets/fonts/Poppins-ExtraLight.ttf'),
+    PoppinsBlack: require('../assets/fonts/Poppins-Black.ttf'),
+    PoppinsExtraBoldItalic: require('../assets/fonts/Poppins-ExtraBoldItalic.ttf'),
+    PoppinsBoldItalic: require('../assets/fonts/Poppins-BoldItalic.ttf'),
   });
 
   useEffect(() => {

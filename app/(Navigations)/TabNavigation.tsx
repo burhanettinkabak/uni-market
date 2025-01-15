@@ -1,72 +1,69 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialIcons } from '@expo/vector-icons'; // Changed icon library to MaterialIcons
+import { MaterialIcons } from '@expo/vector-icons';
 import InboxScreen from '../(Screens)/InboxScreen';
 import HomeScreenNav from './HomeScreenNav';
 import MyadsScreen from '../(Screens)/MyadsScreen';
 import AddPostScreen from '../(Screens)/AddPostScreen';
 import ProfileScreen from '../(Screens)/ProfileScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { StatusBar } from 'react-native';
+
 const Tab = createBottomTabNavigator();
 
 export default function TabNavigation() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" />
       <Tab.Navigator
         screenOptions={({ route }) => ({
           headerShown: false,
           tabBarStyle: {
             position: 'absolute',
             bottom: 15,
-            marginHorizontal: 10,
-            height: 80,
+            marginHorizontal:15,
+            height: 80, 
             backgroundColor: '#0B0406',
-            borderRadius: 45,
+            borderRadius: 40, 
             borderTopWidth: 0,
-            elevation: 3,
+            elevation: 5,
           },
           tabBarIconStyle: {
             justifyContent: 'center',
             alignItems: 'center',
-            width: 30,
-            height: 30,
-          
+            width: 45, 
+            height: 45,
           },
           tabBarItemStyle: {
-            marginTop: 20,
+            marginTop: 15, 
             justifyContent: 'center',
             alignItems: 'center',
           },
-          
           tabBarLabelStyle: {
-            fontSize: 12,
-            fontWeight: '600',
+            fontSize: 13, 
+            fontWeight: 'bold',
             fontFamily: 'Poppins-SemiBold',
             backgroundColor: 'transparent',
           },
-          tabBarActiveTintColor:'#6747E9', 
+          tabBarActiveTintColor: '#6747E9',
           tabBarInactiveTintColor: 'white',
           tabBarIcon: ({ color, size }) => {
             let iconName;
-            let iconSize = 30; // Default icon size
+            let iconSize = 35;
             switch (route.name) {
-              case 'Anasayfa':
+              case 'Home':
                 iconName = 'home';
                 break;
-              case 'Sohbetler':
+              case 'Chats':
                 iconName = 'chat';
                 break;
-              case 'Sat':
+              case 'AddPost':
                 iconName = 'camera-alt';
-                iconSize = 45; // Larger size for 'Sat'
+                iconSize = 50; 
                 color = 'white';
                 break;
-              case 'İlanlarım':
+              case 'Myads':
                 iconName = 'view-list';
                 break;
-              case 'Hesap':
+              case 'Profile':
                 iconName = 'person';
                 break;
             }
@@ -74,26 +71,26 @@ export default function TabNavigation() {
           },
         })}
       >
-        <Tab.Screen name="Anasayfa" component={HomeScreenNav} options={{ tabBarLabel: () => null }} />
-        <Tab.Screen name="Sohbetler" component={InboxScreen} options={{ tabBarLabel: () => null }} />
+        <Tab.Screen name="Home" component={HomeScreenNav} options={{ tabBarLabel: () => null }} />
+        <Tab.Screen name="Chats" component={InboxScreen} options={{ tabBarLabel: () => null }} />
         <Tab.Screen
-          name="Sat"
+          name="AddPost"
           component={AddPostScreen}
           options={{
             tabBarLabel: () => null,
             tabBarIconStyle: {
-              marginTop: -40,
-              width: 70,
-              height: 70,
-              borderRadius: 35,
+              marginTop: -45, 
+              width: 75, 
+              height: 75, 
+              borderRadius: 42.5, 
               backgroundColor: '#6747E9',
-              borderWidth: 1, // Added border for 'Sat' icon
-              borderColor: '#6747E9', // Border color
+              borderWidth: 2,
+              borderColor: '#6747E9',
             },
           }}
         />
-        <Tab.Screen name="İlanlarım" component={MyadsScreen} options={{ tabBarLabel: () => null }} />
-        <Tab.Screen name="Hesap" component={ProfileScreen} options={{ tabBarLabel: () => null }} />
+        <Tab.Screen name="Myads" component={MyadsScreen} options={{ tabBarLabel: () => null }} />
+        <Tab.Screen name="Profile" component={ProfileScreen} options={{ tabBarLabel: () => null }} />
       </Tab.Navigator>
     </GestureHandlerRootView>
   );

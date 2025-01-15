@@ -79,6 +79,8 @@ export default function Page() {
           <Text style={styles.signupLink}>Kayıt Ol</Text>
         </TouchableOpacity>
       </View>
+
+      
     </View>
   );
 }
@@ -87,8 +89,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    alignItems: 'center', // İçeriği yatayda ortalar
-    justifyContent: 'center', // İçeriği dikeyde ortalar
+    alignItems: 'center', 
+    justifyContent: 'center', 
   },
   header: {
     position: 'absolute',
@@ -97,16 +99,15 @@ const styles = StyleSheet.create({
     height: '30%',
     borderBottomLeftRadius: 80,
     borderBottomRightRadius: 80,
-    backgroundColor: '#6747E9',
+    backgroundColor: '#FFD42D',
     justifyContent: 'center',
     alignItems: 'center',
-    borderBottomWidth: 40,
-    borderBottomColor: '#FFD42D',
+  
   },
   title: {
-    fontSize: 40, // Başlık için büyük ve mobil uyumlu
+    fontSize: 40, 
     fontWeight: 'bold',
-    color: 'white',
+    color: '#0B0406',
     textAlign: 'center',
     marginTop: '10%',
   },
@@ -116,10 +117,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     paddingHorizontal: 20,
     alignItems: 'center',
-    marginTop: '50%',
+    marginTop: '60%',
   },
   subtitle: {
-    fontSize: 16, // Alt başlıklar için uygun bir boyut
+    fontSize: 16, 
     color: '#393E52',
     marginBottom: 10,
     fontWeight: '600',
@@ -137,7 +138,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 60,
-    fontSize: 16, // Giriş alanları için orta büyüklükte
+    fontSize: 16, 
     paddingHorizontal: 10,
   },
   icon: {
@@ -151,11 +152,11 @@ const styles = StyleSheet.create({
   },
   forgotPassword: {
     color: '#393E52',
-    fontSize: 14, // Küçük boyutlu metin
+    fontSize: 14, 
 
   },
   loginButton: {
-    backgroundColor: '#6747E9',
+    backgroundColor: '#FFD42D',
     paddingVertical: 15,
     borderRadius: 30,
     alignItems: 'center',
@@ -164,9 +165,9 @@ const styles = StyleSheet.create({
     marginTop: '10%',
   },
   loginText: {
-    fontSize: 18, // Düğme metni için belirgin boyut
+    fontSize: 18, 
     fontWeight: 'bold',
-    color: 'white',
+    color: '#0B0406',
   },
   signup: {
     flexDirection: 'row',
@@ -178,14 +179,29 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   signupLink: {
-    color: '#FFD42D',
-    fontSize: 16, // Link metni için biraz daha büyük
+    color: '#6747E9',
+    fontSize: 16, 
     fontWeight: 'bold',
     marginLeft: 5,
   },
   centeredContainer: {
     alignItems: 'center',
     width: '100%',
+  },
+  circleContainer: {
+    position: 'absolute',
+    bottom: -10,   
+    right: -10,
+    left: -10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  circle: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+    backgroundColor: '#FFD42D',
   },
   
 });

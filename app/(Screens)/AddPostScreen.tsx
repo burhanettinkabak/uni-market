@@ -40,58 +40,66 @@ interface FormValues {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 15,
-    marginTop: 40,
+    padding: 5,
+    backgroundColor: 'white',
   },
   form: {
-    padding: 20,
-    borderRadius: 8,
-    elevation: 4,
+    padding: 25,
+    borderRadius: 10,
+    backgroundColor: 'white',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 5,
   },
   title: {
-    fontSize: 24,
-    fontWeight: '700',
-    marginBottom: 15,
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 20,
     textAlign: 'center',
+    color: '#333',
   },
   inputGroup: {
-    marginBottom: 15,
+    marginBottom: 20,
   },
   label: {
-    fontSize: 14,
-    marginBottom: 5,
-    color: '#555',
+    fontSize: 16,
+    marginBottom: 8,
+    color: '#444',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 12,
+    borderColor: '#ccc',
+    borderRadius: 10,
+    padding: 15,
     fontSize: 16,
     backgroundColor: '#fafafa',
+
   },
   pickerButton: {
     borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 8,
-    padding: 12,
+    borderColor: '#ccc',
+    borderRadius: 10,
+    padding: 15,
     backgroundColor: '#f0f0f0',
-    marginTop: 5,
+    marginTop: 8,
   },
   pickerButtonText: {
     fontSize: 16,
     color: '#333',
   },
   submitButton: {
-    backgroundColor: '#007AFF',
-    padding: 12,
-    borderRadius: 8,
+    backgroundColor: '#FFD42D',
+    padding: 18,
+    borderRadius: 30,
     alignItems: 'center',
+    marginTop: 20,
   },
   submitButtonText: {
-    color: '#fff',
+    color: '#0B0406',
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
   modalOverlay: {
     flex: 1,
@@ -101,10 +109,11 @@ const styles = StyleSheet.create({
   modalContainer: {
     backgroundColor: '#fff',
     borderRadius: 10,
-    padding: 20,
+    padding: 25,
+    marginHorizontal: 20,
   },
   modalItem: {
-    padding: 10,
+    padding: 15,
   },
   modalItemText: {
     fontSize: 16,
@@ -119,9 +128,10 @@ const styles = StyleSheet.create({
     height: 200,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: 10,
     borderWidth: 1,
-   
+    borderColor: '#ccc',
+    backgroundColor: '#f0f0f0',
   },
   imagePlaceholderText: {
     color: '#666',
@@ -130,14 +140,13 @@ const styles = StyleSheet.create({
   imagePlaceholderImage: {
     width: '100%',
     height: 200,
-    borderRadius: 8,
-    objectFit: 'cover',
+    borderRadius: 10,
     resizeMode: 'cover',
   },
   error: {
     color: 'red',
-    fontSize: 12,
-    marginTop: 5,
+    fontSize: 14,
+    marginTop: 8,
   },
 });
 
@@ -183,17 +192,32 @@ export default function AddPostScreen() {
   // Get Current Location and Address
   const getLocation = async (setFieldValue: (field: string, value: any) => void) => {
     try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        Alert.alert(
+          'İzin Gerekli',
+          'Konum izni olmadan bu özelliği kullanamazsınız.',
+          [{ text: 'Tamam' }]
+        );
+        return;
+      }
+
       const location = await Location.getCurrentPositionAsync({});
       const { latitude, longitude } = location.coords;
 
       let reverseGeocode = await Location.reverseGeocodeAsync({ latitude, longitude });
       if (reverseGeocode.length > 0) {
-        const { city, region, street } = reverseGeocode[0];
-        const address = `${street}, ${city}, ${region}`;
+        const { city, region} = reverseGeocode[0];
+        const address = `${city}, ${region}`;
         setCurrentAddress(address);
         setFieldValue('address', address);
       }
     } catch (error) {
+      Alert.alert(
+        'Hata',
+        'Konum alınamadı. Lütfen konum servislerinizin açık olduğundan emin olun.',
+        [{ text: 'Tamam' }]
+      );
       console.error("Konum alınamadı", error);
     }
   };
@@ -284,7 +308,10 @@ export default function AddPostScreen() {
   };
 
   return (
-    <KeyboardAvoidingView behavior='padding' style={{flex:1,marginBottom: 100}}>
+    <KeyboardAvoidingView behavior='padding' style={{flex:1,marginBottom: 90}}>
+      <View style={{flex:1,padding:10,marginTop:20}}> 
+          <Text style={{fontFamily:'Poppins-SemiBold',color:'#0B0406',fontSize:20,textAlign:'center',marginTop:20,borderBottomWidth:1,borderBottomColor:'#ccc',paddingBottom:10}}>Yeni İlan Oluştur</Text>
+      
       <View style={styles.container}>
         <ScrollView>
           <Formik
@@ -333,14 +360,13 @@ export default function AddPostScreen() {
           >
             {({ handleChange, handleSubmit, handleBlur, values, setFieldValue, errors }) => (
               <View style={styles.form}>
-                <Text style={styles.title}>Yeni İlan Oluştur</Text>
                 <TouchableOpacity onPress={pickImage}>
                   <View style={styles.inputGroup}>
                     <View style={styles.imagePlaceholder}>
                       {image ? (
                         <Image source={{ uri: image }} style={styles.imagePlaceholderImage} />
                       ) : (
-                        <Text style={styles.imagePlaceholderText}>Görsel Yükle</Text>
+                        <Text style={styles.imagePlaceholderText}>Resim Yükle</Text>
                       )}
                     </View>
                   </View>
@@ -363,7 +389,7 @@ export default function AddPostScreen() {
                     value={values.description}
                     onChangeText={handleChange('description')}
                     onBlur={handleBlur('description')}
-                    style={[styles.input, { height: 80, textAlignVertical: 'top' }]}
+                    style={[styles.input, { height: 100, textAlignVertical: 'top' }]}
                     multiline
                   />
                   {errors.description && <Text style={styles.error}>{errors.description}</Text>}
@@ -418,9 +444,9 @@ export default function AddPostScreen() {
                 <View style={styles.inputGroup}>
                   <Text style={styles.label}>Fiyat (₺)</Text>
                   <TextInput
-                    value={values.price}
+                    value={values.price.replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                     keyboardType="numeric"
-                    onChangeText={handleChange('price')}
+                    onChangeText={(text) => setFieldValue('price', text.replace(/\./g, ''))}
                     onBlur={handleBlur('price')}
                     style={styles.input}
                     placeholder="₺"
@@ -432,7 +458,11 @@ export default function AddPostScreen() {
                   <Text style={styles.label}>Telefon</Text>
                   <TextInput
                     value={values.phone}
-                    onChangeText={handleChange('phone')}
+                    onChangeText={(text) => {
+                      const cleaned = text.replace(/[^0-9]/g, '').slice(0, 10);
+                      const formatted = cleaned.replace(/(\d{3})(\d{3})(\d{2})(\d{2})/, '$1 $2 $3 $4');
+                      setFieldValue('phone', formatted);
+                    }}
                     onBlur={handleBlur('phone')}
                     keyboardType="phone-pad"
                     style={styles.input}
@@ -448,6 +478,7 @@ export default function AddPostScreen() {
             )}
           </Formik>
         </ScrollView>
+      </View>
       </View>
     </KeyboardAvoidingView>
   );

@@ -53,7 +53,7 @@ export default function HomeScreen() {
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         showsVerticalScrollIndicator={false}
-        style={{flex: 1, backgroundColor: '#EFEFF0', marginBottom: 100}}
+        style={{flex: 1, backgroundColor: '#EFEFF0',marginBottom:90}}
       />
     </View>
   );

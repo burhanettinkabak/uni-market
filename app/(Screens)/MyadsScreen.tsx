@@ -4,6 +4,8 @@ import { getFirestore, collection, query, where, getDocs, deleteDoc, doc } from 
 import { app } from '@/firebaseConfig';
 import { useUser } from '@clerk/clerk-expo';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 export default function MyadsScreen() {
   const [posts, setPosts] = useState<any[]>([]);
@@ -11,19 +13,6 @@ export default function MyadsScreen() {
   const { user } = useUser();
   const db = getFirestore(app);
   const navigation = useNavigation();
-
-
-
-  // useLayoutEffect(() => {
-  //   navigation.setOptions({
-  //     headerShown: true,
-  //     headerTitle: 'İlanlarım',
-  //     headerTitleAlign: 'center',
-  //     headerTitleStyle: { color: 'white', fontFamily: 'Poppins-SemiBold' },
-  //     headerStyle: { backgroundColor: '#0B0406' },
-  //     headerTintColor: 'white',
-  //   });
-  // }, [navigation]);
 
 
   useFocusEffect(
@@ -61,21 +50,24 @@ export default function MyadsScreen() {
   };
 
   return (
-    <View style={styles.scrollView}>
+    <View style={{flex:1,padding:10,marginTop:20,marginBottom:90}}>
+      <Text style={{fontFamily:'Poppins-SemiBold',color:'#0B0406',fontSize:20,textAlign:'center',marginTop:20,borderBottomWidth:1,borderBottomColor:'#ccc',paddingBottom:10}}>İlanlarım</Text>
       <FlatList
         data={posts}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
           <View style={styles.detailContainer}>
-            
             <Text style={styles.separator}>{item.createdAt}</Text>
             <Text style={styles.sectionTitle}>{item.category}</Text>
-            <Text style={styles.sectionTitle}>{item.price}</Text>
+            <Text style={styles.sectionTitle}>{item.price} ₺</Text>
             <Text style={styles.sectionTitle}>{item.address}</Text>
             <Text style={styles.description}>{item.description}</Text>
             <Image source={{ uri: item.image }} style={styles.image} />
-            <TouchableOpacity onPress={() => deletePost(item.id)} style={styles.chatButton}>
-              <Text style={styles.chatButtonText}>Delete</Text>
+            <TouchableOpacity onPress={() => deletePost(item.id)} style={styles.deleteButton}>
+              <View style={{flexDirection:'row',alignItems:'center'}}>
+                <Ionicons name="trash" size={24} color="white" style={{ marginRight: 10 }} />
+                <Text style={styles.deleteButtonText}>İlanı Sil</Text>
+              </View>
             </TouchableOpacity>
           </View>
         )}
@@ -90,11 +82,16 @@ export default function MyadsScreen() {
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'white',
+  },
+  header: {
+    backgroundColor: '#FFD42D',
+    padding: 15,
   },
   image: {
-    width: '100%',
-    height: 300,
+    width: 200,
+    height: 200,
+    alignSelf:'center',
   },
   detailContainer: {
     padding: 15,
@@ -137,12 +134,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   chatButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: 'red',
     padding: 10,
     borderRadius: 45,
     alignItems: 'center',
     marginTop: 20,
-    width: '70%',
+    width: '100%',
     alignSelf: 'center',
   },
   chatButtonContent: {
@@ -170,6 +167,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  
   },
   deleteIcon: {
     marginRight: 10,
