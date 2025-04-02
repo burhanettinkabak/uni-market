@@ -1,24 +1,4 @@
-<style>
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    text-align: center;
-    max-width: 900px;
-    margin: auto;
-  }
-  .grid-item img {
-    width: 100%;
-    max-width: 250px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .grid-item b {
-    display: block;
-    margin-top: 8px;
-    font-size: 16px;
-  }
-</style>
+
 
 <div align="center">
 
@@ -42,49 +22,56 @@ The **Uni Market** is a mobile application developed to provide a secure and exc
 
 ## App Screenshots
 
-<div class="grid-container">
-  <div class="grid-item">
-    <img src="./assets/screenshots/entrance.png" alt="Entrance">
-    <b>Entrance</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/signup.png" alt="Sign Up">
-    <b>Sign Up</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/signin.png" alt="Sign In">
-    <b>Sign In</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/home.png" alt="Home">
-    <b>Home</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/productdetail.png" alt="Product Detail">
-    <b>Product Detail</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/chat.png" alt="Chat">
-    <b>Chat</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/inbox.png" alt="Inbox">
-    <b>Inbox</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/addproduct.png" alt="Add Product">
-    <b>Add Product</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/myproducts.png" alt="My Products">
-    <b>My Products</b>
-  </div>
-  <div class="grid-item">
-    <img src="./assets/screenshots/profile.png" alt="Profile">
-    <b>Profile</b>
-  </div>
-</div>
-
+<table align="center" border="1" cellpadding="5">
+  <tr>
+    <td align="center">
+      <img src="./assets/screenshots/entrance.png" alt="Entrance" width="150"><br>
+      <b>Entrance</b>
+    </td>
+    <td align="center">
+      <img src="./assets/screenshots/signup.png" alt="Sign Up" width="150"><br>
+      <b>Sign Up</b>
+    </td>
+    <td align="center">
+      <img src="./assets/screenshots/signin.png" alt="Sign In" width="150"><br>
+      <b>Sign In</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./assets/screenshots/home.png" alt="Home" width="150"><br>
+      <b>Home</b>
+    </td>
+    <td align="center">
+      <img src="./assets/screenshots/productdetail.png" alt="Product Detail" width="150"><br>
+      <b>Product Detail</b>
+    </td>
+    <td align="center">
+      <img src="./assets/screenshots/chat.png" alt="Chat" width="150"><br>
+      <b>Chat</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="./assets/screenshots/inbox.png" alt="Inbox" width="150"><br>
+      <b>Inbox</b>
+    </td>
+    <td align="center">
+      <img src="./assets/screenshots/addproduct.png" alt="Add Product" width="150"><br>
+      <b>Add Product</b>
+    </td>
+    <td align="center">
+      <img src="./assets/screenshots/myproducts.png" alt="My Products" width="150"><br>
+      <b>My Products</b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="3">
+      <img src="./assets/screenshots/profile.png" alt="Profile" width="150"><br>
+      <b>Profile</b>
+    </td>
+  </tr>
+</table>
 
 ## Installation
 
