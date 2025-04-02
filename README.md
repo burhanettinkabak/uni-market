@@ -20,71 +20,8 @@ The **Uni Market** is a mobile application developed to provide a secure and exc
 - **Mobile-First Design**: Optimized for a seamless experience on mobile devices with an intuitive user interface.
 
 ## App Screenshots
-<style>
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-  }
-  .gallery-item img {
-    width: 100%;
-    max-width: 120px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .gallery-item b {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-  }
-</style>
 
-<div class="gallery">
-  <div class="gallery-item">
-    <img src="./assets/screenshots/entrance.png" alt="Entrance">
-    <b>Entrance</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/signup.png" alt="Sign Up">
-    <b>Sign Up</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/signin.png" alt="Sign In">
-    <b>Sign In</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/home.png" alt="Home">
-    <b>Home</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/productdetail.png" alt="Product Detail">
-    <b>Product Detail</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/chat.png" alt="Chat">
-    <b>Chat</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/inbox.png" alt="Inbox">
-    <b>Inbox</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/addproduct.png" alt="Add Product">
-    <b>Add Product</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/myproducts.png" alt="My Products">
-    <b>My Products</b>
-  </div>
-  <div class="gallery-item">
-    <img src="./assets/screenshots/profile.png" alt="Profile">
-    <b>Profile</b>
-  </div>
-</div>
-
+<table> <tr> <td align="center"> <img src="./assets/screenshots/entrance.png" alt="Entrance" width="250"> <br><b>Entrance</b> </td> <td align="center"> <img src="./assets/screenshots/signup.png" alt="Sign Up" width="250"> <br><b>Sign Up</b> </td> <td align="center"> <img src="./assets/screenshots/signin.png" alt="Sign In" width="250"> <br><b>Sign In</b> </td> </tr> <tr> <td align="center"> <img src="./assets/screenshots/home.png" alt="Home" width="250"> <br><b>Home</b> </td> <td align="center"> <img src="./assets/screenshots/productdetail.png" alt="Product Detail" width="250"> <br><b>Product Detail</b> </td> <td align="center"> <img src="./assets/screenshots/chat.png" alt="Chat" width="250"> <br><b>Chat</b> </td> </tr> <tr> <td align="center"> <img src="./assets/screenshots/inbox.png" alt="Inbox" width="250"> <br><b>Inbox</b> </td> <td align="center"> <img src="./assets/screenshots/addproduct.png" alt="Add Product" width="250"> <br><b>Add Product</b> </td> <td align="center"> <img src="./assets/screenshots/myproducts.png" alt="My Products" width="250"> <br><b>My Products</b> </td> </tr> <tr> <td align="center"> <img src="./assets/screenshots/profile.png" alt="Profile" width="250"> <br><b>Profile</b> </td> </tr> </table>
 
 ## Installation
 
