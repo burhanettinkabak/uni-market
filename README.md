@@ -1,24 +1,3 @@
-<style>
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 15px;
-    max-width: 600px;
-    margin: auto;
-    text-align: center;
-  }
-  .gallery-item img {
-    width: 100%;
-    max-width: 120px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .gallery-item b {
-    display: block;
-    margin-top: 5px;
-    font-size: 14px;
-  }
-</style>
 
 <div align="center">
 
@@ -41,7 +20,27 @@ The **Uni Market** is a mobile application developed to provide a secure and exc
 - **Mobile-First Design**: Optimized for a seamless experience on mobile devices with an intuitive user interface.
 
 ## App Screenshots
-
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+  }
+  .gallery-item img {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .gallery-item b {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+</style>
 
 <div class="gallery">
   <div class="gallery-item">
